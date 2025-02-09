@@ -16,7 +16,13 @@ export class FrmGastosComponent {
   @Output() gastoAgregado = new EventEmitter<Igastos>();
   @Output() editame = new EventEmitter<Igastos>();
 
-  nuevogasto: Igastos = { id: '', ingresoId: '', descripcion: '', monto: 0, fecha: '' };
+  nuevogasto: Igastos = {
+    id: '',
+    ingresoId: '',
+    descripcion: '',
+    monto: 0,
+    fecha: '',
+  };
 
   ngOnChanges() {
     if (this.gastoParaEditar) {

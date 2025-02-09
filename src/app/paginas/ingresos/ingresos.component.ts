@@ -7,33 +7,29 @@ import { DbService } from '../../servicios/db.service';
 @Component({
   selector: 'app-ingresos',
   standalone: true,
-  imports: [FrmIngresosComponent,ListadoIngresosComponent],
+  imports: [FrmIngresosComponent, ListadoIngresosComponent],
   templateUrl: './ingresos.component.html',
-  styleUrl: './ingresos.component.css'
+  styleUrl: './ingresos.component.css',
 })
 export class IngresosComponent {
-
   ingresos = signal<Iingresos[]>([]);
-  ingresoParaEditar = signal<Iingresos|null>(null);
+  ingresoParaEditar = signal<Iingresos | null>(null);
 
+  ingresoServicio = inject(DbService);
 
-   ingresoServicio = inject(DbService);
-
-  agregarIngreso(ingreso:Iingresos){
-    this.ingresoServicio.agregarIngreso({...ingreso})
+  agregarIngreso(ingreso: Iingresos) {
+    this.ingresoServicio.agregarIngreso({ ...ingreso });
     this.ingresos.set(this.ingresoServicio.getIngresos());
   }
-  editandolo(ingresoEditado:Iingresos){
+  editandolo(ingresoEditado: Iingresos) {
     this.ingresoServicio.actualizarIngreso(ingresoEditado);
     this.ingresos.set(this.ingresoServicio.getIngresos());
   }
-  eliminaIngreso(id:string){
+  eliminaIngreso(id: string) {
     this.ingresoServicio.eliminarIngreso(id);
     this.ingresos.set(this.ingresoServicio.getIngresos());
-
   }
-  seleccionIngreso(ingreso:Iingresos){
+  seleccionIngreso(ingreso: Iingresos) {
     this.ingresoParaEditar.set(ingreso);
   }
-
 }

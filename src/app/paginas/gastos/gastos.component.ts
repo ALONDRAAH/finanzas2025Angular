@@ -9,7 +9,7 @@ import { DbService } from '../../servicios/db.service';
   standalone: true,
   imports: [FrmGastosComponent, ListadoGastosComponent],
   templateUrl: './gastos.component.html',
-  styleUrl: './gastos.component.css'
+  styleUrl: './gastos.component.css',
 })
 export class GastosComponent {
   gastos = signal<Igastos[]>([]);
