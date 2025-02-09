@@ -1,0 +1,5 @@
+<h2>GESTION DE GASTOS</h2>
+
+<app-frm-gastos [gastoParaEditar]="gastoParaEditar()" (gastoAgregado)="agregarGasto($event)" (editame)="editandolo($event)"></app-frm-gastos>
+
+<app-listado-gastos [gastos]="gastos()" (gastoSeleccionado)="seleccionGasto($event)" (idEliminado)="eliminaGasto($event)"></app-listado-gastos>

@@ -1,0 +1,71 @@
+<div class="container">
+  <form class="frm rounded" (ngSubmit)="agregaGasto()">
+    <div class="mb-3 row">
+      <label for="id" class="col-4 col-form-label">ID</label>
+      <div class="col-8">
+        <input
+          type="text"
+          class="form-control"
+          name="id"
+          id="id"
+          placeholder="ID"
+          [(ngModel)]="nuevogasto.id"
+        />
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="descripcion" class="col-4 col-form-label">DESCRIPCIÓN</label>
+      <div class="col-8">
+        <input
+          type="text"
+          class="form-control"
+          name="descripcion"
+          id="descripcion"
+          placeholder="DESCRIPCIÓN DEL GASTO"
+          [(ngModel)]="nuevogasto.descripcion"
+        />
+        <div *ngIf="nuevogasto.descripcion == ''">
+          <span>DEBES ESCRIBIR UNA DESCRIPCIÓN</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="fecha" class="col-4 col-form-label">FECHA</label>
+      <div class="col-8">
+        <input
+          type="date"
+          class="form-control"
+          name="fecha"
+          id="fecha"
+          [(ngModel)]="nuevogasto.fecha"
+        />
+        <div *ngIf="nuevogasto.fecha == ''">
+          <span>DEBES ESCRIBIR UNA FECHA VALIDA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="monto" class="col-4 col-form-label">MONTO DEL GASTO</label>
+      <div class="col-8">
+        <input
+          type="number"
+          class="form-control"
+          name="monto"
+          id="monto"
+          [(ngModel)]="nuevogasto.monto"
+        />
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <div class="offset-sm-4 col-sm-8">
+        <button type="submit" class="btn btn-primary">
+          {{ gastoParaEditar ? "ACTUALIZAR GASTO" : "AGREGAR GASTO" }}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
